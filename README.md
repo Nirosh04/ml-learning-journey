@@ -1,6 +1,10 @@
 # ML-Learning Projekt
 
-Dies ist mein erstes Data-Science/ML-Projekt. Enthält:
-- Titanic Analysis Notebook
-- Python Skripte
-- Setup-Anweisungen
+## Woche 1
+
+- NumPy-Basics Notebook
+- Pandas-Basic Notebook
+- Matplotlib-Seaborn Notebook
+  - Daten laden, gruppieren, fehlende Werte füllen
+  - Visualisierung mit Matplotlib & Seaborn
+- Sales.csv und Students.csv, titanic.csv Beispielanalysen
