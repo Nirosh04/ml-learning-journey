@@ -20,3 +20,12 @@
 - Pipeline genutzt für Vorhersagen
 - Feature Importance & SHAP zur Modellinterpretation.
 - ML Miniproejkt am Beispiel California Housing Data
+
+
+## Woche 3
+- Aufbau einer REST-API mit FastAPI
+- Arbeiten mit Pydantic zur Validierung von ML-Features
+- Laden eines gespeicherten Modells mit joblib
+- Rückgabe eines Ergebnisses als JSON
+- API-Debugging (Fehler 500, 422 etc.)
+- Starten und Testen von Uvicorn
