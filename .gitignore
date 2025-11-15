@@ -16,4 +16,4 @@ Thumbs.db
 
 # ML Model Files
 *.pkl
-
+!api/housing_pipeline.pkl
