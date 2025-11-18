@@ -179,7 +179,7 @@ Output: predicted_price + latency_sec
 ```bash
 python -m venv venv
 source venv/bin/activate   # macOS/Linux
-venv\Scriptsctivate      # Windows
+venv\Scripts\activate      # Windows
 ```
 
 ### 2. Dependencies installieren
