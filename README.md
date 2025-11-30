@@ -1,211 +1,221 @@
-# 🌟 **ML Learning Journey – Machine Learning, API Development & Cloud Deployment**
-Dieses Projekt dokumentiert meine komplette Lernreise durch Data Science, Machine Learning, API-Entwicklung und produktionsreifes Deployment.  
-Von den Grundlagen bis zur öffentlich erreichbaren ML-API in der Cloud.
+# 🌟 ML Learning Journey -- Machine Learning, API Development & Cloud Deployment
 
-Es umfasst:
+This project documents my complete learning journey through Data
+Science, Machine Learning, API development, and production-ready cloud
+deployment.\
+From fundamentals to a fully deployed, publicly accessible ML API.
 
-- Data Science Basics (NumPy, Pandas, Matplotlib)  
-- Feature Engineering & Modelltraining  
-- FastAPI-Backend mit ML-Modell  
-- Docker Deployment auf Render  
-- GitHub CI/CD Automation  
-- Logging, Monitoring & Load Testing  
+It includes:
 
----
+-   Data Science basics (NumPy, Pandas, Matplotlib)\
+-   Feature engineering & model training\
+-   FastAPI backend with ML model\
+-   Docker deployment on Render\
+-   GitHub CI/CD automation\
+-   Logging, monitoring & load testing
 
-# 📁 **Projektstruktur**
+------------------------------------------------------------------------
 
-```
-ML-LEARNING/
-│
-├── .github/workflows/
-│   └── ci.yml                # GitHub Actions CI-Pipeline
-│
-├── api/
-│   ├── app.py                # FastAPI ML API
-│   ├── requirements.txt      # Dependencies
-│   ├── Dockerfile            # Docker Image für Render Dep
-│   ├── housing_pipeline.pkl  # Produktionsmodell (Scikit-Learn)
-│   └── __init__.py
-│
-├── notebooks/
-│   ├── model_training_and_api_demo.ipynb
-│   ├── HousingAPI_Render_Test.ipynb
-│   ├── NumPy-Basics.ipynb
-│   ├── Pandas-Basics.ipynb
-│   ├── Matplotlib-Seaborn.ipynb
-│   ├── ScikitLearn.ipynb
-│   └── weitere Analysen
-│
-├── tests/
-│   ├── test_api.py           # Pytest: Testet Live-/Local API
-│   └── load_test.ipynb       # Load Test: 100 Requests
-│
-├── data/
-│
-├── README.md
-└── .gitignore
-```
+# 📁 Project Structure
 
----
+    ML-LEARNING/
+    │
+    ├── .github/workflows/
+    │   └── ci.yml                # GitHub Actions CI pipeline
+    │
+    ├── api/
+    │   ├── app.py                # FastAPI ML API
+    │   ├── requirements.txt      # Dependencies
+    │   ├── Dockerfile            # Docker image for Render deployment
+    │   ├── housing_pipeline.pkl  # Production-ready ML model
+    │   └── __init__.py
+    │
+    ├── notebooks/
+    │   ├── model_training_and_api_demo.ipynb
+    │   ├── HousingAPI_Render_Test.ipynb
+    │   ├── NumPy-Basics.ipynb
+    │   ├── Pandas-Basics.ipynb
+    │   ├── Matplotlib-Seaborn.ipynb
+    │   ├── ScikitLearn.ipynb
+    │   └── additional analyses
+    │
+    ├── tests/
+    │   ├── test_api.py           # Pytest: tests live/local API
+    │   └── load_test.ipynb       # Load test: 100 requests
+    │
+    ├── data/
+    │
+    ├── README.md
+    └── .gitignore
 
-# 📚 **Woche 1 – Data Basics**
+------------------------------------------------------------------------
 
-- NumPy: Arrays, Broadcasting, mathematische Operationen  
-- Pandas: DataFrames, Filtering, GroupBy, Missing Values  
-- Matplotlib & Seaborn  
-- Explorative Analysen mit:
-  - Sales.csv  
-  - Students.csv  
-  - Titanic.csv
+# 📚 Week 1 -- Data Basics
 
----
+-   NumPy: arrays, broadcasting, mathematical operations\
+-   Pandas: DataFrames, filtering, groupby, handling missing values\
+-   Matplotlib & Seaborn for visualization\
+-   Exploratory analysis on:
+    -   sales.csv\
+    -   students.csv\
+    -   titanic.csv
 
-# 🤖 **Woche 2 – Feature Engineering & Machine Learning**
+------------------------------------------------------------------------
 
-- Feature Scaling, OneHotEncoding  
-- Train/Test Split  
-- Vergleich mehrerer ML-Modelle  
-- Erstellung einer kompletten **Scikit-Learn Pipeline**  
-- Modell gespeichert als `housing_pipeline.pkl`  
-- Feature Engineering (z. B. rooms_per_household)  
-- Modellinterpretation:
-  - Feature Importance
-  - SHAP Values
+# 🤖 Week 2 -- Feature Engineering & Machine Learning
 
----
+-   Feature scaling, OneHotEncoding\
+-   Train/test split\
+-   Comparison of multiple machine learning models\
+-   Building a complete **Scikit-Learn pipeline**\
+-   Saving the model as `housing_pipeline.pkl`\
+-   Custom feature engineering (e.g., rooms_per_household)\
+-   Model interpretation:
+    -   Feature importance\
+    -   SHAP values
 
-# ⚙️ **Woche 3 – FastAPI ML Backend**
+------------------------------------------------------------------------
 
-- Aufbau einer REST API mit FastAPI  
-- Pydantic für Input Validation  
-- Laden des ML-Modells via joblib  
-- Endpoint `/predict`  
-- Rückgabe als JSON  
-- Error Handling (422, 500, Validierungsfehler)  
-- Testing über `requests` & Notebooks  
-- Starten mit Uvicorn
+# ⚙️ Week 3 -- FastAPI ML Backend
 
----
+-   Developing a REST API with FastAPI\
+-   Input validation using Pydantic\
+-   Loading the ML model via joblib\
+-   `/predict` endpoint\
+-   JSON responses\
+-   Error handling (422, 500, validation errors)\
+-   Testing via `requests` and notebooks\
+-   Running with Uvicorn
 
-# 🚀 **Woche 4 – CI/CD & Cloud Deployment (Render + GitHub Actions)**
+------------------------------------------------------------------------
 
-### **CI mit GitHub Actions (`ci.yml`):**
+# 🚀 Week 4 -- CI/CD & Cloud Deployment (Render + GitHub Actions)
 
-- Automatisches Ausführen von Tests bei jedem Push  
-- Python 3.11 Setup  
-- Dependencies installieren  
-- Pytest ausführen  
+## CI with GitHub Actions (`ci.yml`):
 
-### **Docker Deployment auf Render:**
+-   Automatically runs tests on every push\
+-   Python 3.11 setup\
+-   Installing dependencies\
+-   Running Pytest
 
-- Dockerfile erstellt  
-- Render Service eingerichtet  
-- Build Context richtig gesetzt  
-- Auto-Deploy aktiviert  
-- Fehler analysiert und gelöst:  
-  - Model not found  
-  - Dockerfile Path  
-  - Gitignore Regeln  
+## Docker Deployment on Render:
 
-➡️ **API jetzt öffentlich verfügbar**
+-   Created a Dockerfile\
+-   Configured Render service\
+-   Correct build context\
+-   Enabled auto-deploy\
+-   Debugged and resolved issues such as:
+    -   Model not found\
+    -   Wrong Dockerfile path\
+    -   Gitignore exclusions
 
----
+➡️ **The API is now publicly deployed**
 
-# 🏭 **Woche 5 – Production Patterns: Logging, Monitoring, Fehlerhandling**
+------------------------------------------------------------------------
 
-### Logging
-- Strukturierte Logs (Zeit, Level, Nachricht)  
-- Logging bei:
-  - Request-Eingang  
-  - Erfolgreichen Vorhersagen  
-  - Fehlern (Exceptions)
+# 🏭 Week 5 -- Production Patterns: Logging, Monitoring & Error Handling
 
-### Monitoring
-Ein eigener Monitoring-Endpoint:
+## Logging
 
-**`GET /metrics`**
-- Anzahl Requests  
-- Durchschnittliche Latenz  
+-   Structured logs (timestamp, level, message)\
+-   Logging events for:
+    -   Incoming requests\
+    -   Successful predictions\
+    -   Errors (exceptions)
 
-### Healthcheck
-**`GET /health`**  
-Wird von Render genutzt, um sicherzustellen, dass die API läuft.
+## Monitoring
 
----
+Custom monitoring endpoint:
 
-# 🧪 **Woche 6 – Load Testing (100 Requests)**
+### `GET /metrics`
+
+-   Total number of requests\
+-   Average latency
+
+## Healthcheck
+
+### `GET /health`
+
+Used by Render to verify that the API is running.
+
+------------------------------------------------------------------------
+
+# 🧪 Week 6 -- Load Testing (100 Requests)
 
 Notebook: `tests/load_test.ipynb`
 
-- Simuliert echte Nutzung der API  
-- Sendet 100 POST-Requests  
-- Misst:
-  - Latenz pro Request  
-  - Fehler  
-  - Durchschnittliche Antwortzeit  
-- Visualisiert:
-  - Latenzverlauf (Line Plot)
-  - Verteilung (Histogramm)
-  - Ausreißer via Boxplot  
+-   Simulates real API usage\
+-   Sends 100 POST requests\
+-   Measures:
+    -   Latency per request\
+    -   Errors\
+    -   Average response time\
+-   Visualizes:
+    -   Latency over time (line plot)\
+    -   Distribution (histogram)\
+    -   Outliers (boxplot)
 
-**Beispielwerte:**
-- Durchschnittliche Latenz: ~0.12–0.20s  
-- Minimale Latenz: ~0.07s  
-- Maximale Latenz: ~0.38s  
-- 0 Fehler (API stabil)
+### Example Results
 
----
+-   Average latency: \~0.12--0.20s\
+-   Minimum latency: \~0.07s\
+-   Maximum latency: \~0.38s\
+-   0 errors (API stable)
 
-# 🔌 **API Endpoints**
+------------------------------------------------------------------------
 
-### **GET /**  
-Infos über API + verfügbare Endpoints
+# 🔌 API Endpoints
 
-### **GET /health**  
-Health Check (für Render)
+### **GET /**
 
-### **POST /predict**  
-ML-Vorhersage  
-Input: JSON Feature-Set  
-Output: predicted_price + latency_sec
+Returns basic API information and a list of available endpoints.
 
----
+### **GET /health**
 
-# 🏠 **Projekt lokal starten**
+Health check (used by Render).
 
-### 1. Virtual Environment erstellen
+### **POST /predict**
 
-```bash
+Runs ML prediction.\
+Input: JSON feature set\
+Output: `predicted_price` + `latency_sec`
+
+------------------------------------------------------------------------
+
+# 🏠 Running the Project Locally
+
+## 1. Create a Virtual Environment
+
+``` bash
 python -m venv venv
-source venv/bin/activate   # macOS/Linux
-venv\Scripts\activate      # Windows
+source venv/bin/activate      # macOS/Linux
+venv\Scriptsctivate         # Windows
 ```
 
-### 2. Dependencies installieren
-```bash
+## 2. Install Dependencies
+
+``` bash
 pip install -r api/requirements.txt
 ```
 
-### 3. API starten
-```bash
+## 3. Start the API
+
+``` bash
 uvicorn api.app:app --reload
 ```
 
----
+------------------------------------------------------------------------
 
-# 🛠 **Technologien**
+# 🛠 Technologies Used
 
-- Python 3.11  
-- NumPy, Pandas  
-- Scikit-Learn  
-- Matplotlib, Seaborn  
-- FastAPI  
-- Uvicorn  
-- Docker  
-- Render.com  
-- GitHub Actions  
-- Pytest  
-- Jupyter Notebook  
-
----
+-   Python 3.11\
+-   NumPy, Pandas\
+-   Scikit-Learn\
+-   Matplotlib, Seaborn\
+-   FastAPI\
+-   Uvicorn\
+-   Docker\
+-   Render.com\
+-   GitHub Actions\
+-   Pytest\
+-   Jupyter Notebook

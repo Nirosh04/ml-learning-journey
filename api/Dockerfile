@@ -2,15 +2,14 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-# Optional, aber empfohlen: pip aktualisieren
+# Optional but recommended: upgrade pip
 RUN pip install --upgrade pip
 
-# Anforderungen direkt installieren (schneller & sicher)
+# Install dependencies directly (faster & cleaner)
 RUN pip install fastapi uvicorn[standard] pandas joblib scikit-learn
 
-# Rest des Codes kopieren
+# Copy the rest of the project files
 COPY . .
 
-# Startbefehl
+# Start command
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
-

@@ -8,7 +8,7 @@ import time
 import logging
 
 # ---------------------------------------------------
-# Logger konfigurieren
+# Logger Configuration
 # ---------------------------------------------------
 logger = logging.getLogger("housing-api")
 logger.setLevel(logging.INFO)
@@ -19,7 +19,7 @@ formatter = logging.Formatter(
 )
 handler.setFormatter(formatter)
 
-# Verhindert doppelte Handler, falls Uvicorn auch konfiguriert
+# Prevent duplicate handlers when Uvicorn config also adds handlers
 if not logger.handlers:
     logger.addHandler(handler)
 
@@ -29,23 +29,23 @@ if not logger.handlers:
 app = FastAPI(title="Housing Price Prediction API")
 
 # ---------------------------------------------------
-# Monitoring Variablen
+# Monitoring Variables
 # ---------------------------------------------------
 total_requests = 0
 total_latency = 0.0
 
 # ---------------------------------------------------
-# Modell laden (Pipeline)
+# Load Model (Trained Pipeline)
 # ---------------------------------------------------
 model_path = os.path.join(os.path.dirname(__file__), "housing_pipeline.pkl")
 
 try:
     model = joblib.load(model_path)
-    logger.info(f"Modell erfolgreich geladen von: {model_path}")
+    logger.info(f"Model successfully loaded from: {model_path}")
 except Exception as e:
-    logger.exception(f"Fehler beim Laden des Modells unter {model_path}: {e}")
-    # harter Fehler: ohne Modell macht die API keinen Sinn
-    raise RuntimeError("Model konnte nicht geladen werden")
+    logger.exception(f"Error loading model from {model_path}: {e}")
+    # Fatal error: API is useless without model
+    raise RuntimeError("Model could not be loaded")
 
 # ---------------------------------------------------
 # Pydantic Input Schema
@@ -78,13 +78,13 @@ class HouseData(BaseModel):
         v_upper = v.upper()
         if v_upper not in VALID_OCEAN_VALUES:
             raise ValueError(
-                f"ocean_proximity muss einer dieser Werte sein: {VALID_OCEAN_VALUES}"
+                f"ocean_proximity must be one of: {VALID_OCEAN_VALUES}"
             )
         return v_upper
 
 
 # ---------------------------------------------------
-# Globaler Error-Handler (Production Pattern)
+# Global Error Handler (Production Pattern)
 # ---------------------------------------------------
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
@@ -107,7 +107,7 @@ def predict(data: HouseData):
 
     logger.info(f"Request #{total_requests}: Input = {data.model_dump()}")
 
-    # Pydantic-Objekt -> DataFrame
+    # Convert Pydantic object → DataFrame
     df = pd.DataFrame([data.model_dump()])
 
     try:
@@ -119,7 +119,7 @@ def predict(data: HouseData):
     latency = time.time() - start
     total_latency += latency
 
-    logger.info(f"Antwortzeit = {latency:.4f} Sekunden, Prediction = {prediction}")
+    logger.info(f"Response time = {latency:.4f} seconds, Prediction = {prediction}")
 
     return {
         "predicted_price": prediction,
@@ -141,7 +141,7 @@ def metrics():
 
 
 # ---------------------------------------------------
-# Healthcheck Endpoint (für Render)
+# Healthcheck Endpoint (for Render or Docker)
 # ---------------------------------------------------
 @app.get("/health")
 def health():
@@ -154,11 +154,11 @@ def health():
 @app.get("/")
 def root():
     return {
-        "message": "Housing Prediction API läuft",
+        "message": "Housing Prediction API is running",
         "endpoints": {
             "/": "Root",
             "/health": "Healthcheck",
-            "/predict": "Vorhersagen",
+            "/predict": "Prediction Endpoint",
             "/metrics": "Monitoring",
         },
     }
