@@ -7,12 +7,14 @@ From fundamentals to a fully deployed, publicly accessible ML API.
 
 It includes:
 
--   Data Science basics (NumPy, Pandas, Matplotlib)\
--   Feature engineering & model training\
--   FastAPI backend with ML model\
--   Docker deployment on Render\
--   GitHub CI/CD automation\
--   Logging, monitoring & load testing
+- Data Science basics (NumPy, Pandas, Matplotlib)
+- Classical Machine Learning (feature engineering, model training, evaluation)
+- Deep Learning basics with PyTorch (training loop, MLP, CNN, MNIST/Fashion-MNIST)
+- FastAPI backend with ML model
+- Docker deployment on Render
+- GitHub CI/CD automation
+- Logging, monitoring & load testing
+
 
 ------------------------------------------------------------------------
 
@@ -37,7 +39,11 @@ It includes:
     │   ├── Pandas-Basics.ipynb
     │   ├── Matplotlib-Seaborn.ipynb
     │   ├── ScikitLearn.ipynb
-    │   └── additional analyses
+    │   ├── pytorch_basics.ipynb
+    │   ├── mnist_nn.ipynb
+    │   ├── cnn_mnist.ipynb
+    │   ├── pytorch_miniprojekt.ipynb
+    │   └── data/                 # MNIST/FashionMNIST cache (gitignored)
     │
     ├── tests/
     │   ├── test_api.py           # Pytest: tests live/local API
@@ -164,6 +170,55 @@ Notebook: `tests/load_test.ipynb`
 
 ------------------------------------------------------------------------
 
+------------------------------------------------------------------------
+
+# 🧠 Week 10 -- Deep Learning Basics (PyTorch)
+
+Goal:
+- Build first deep learning models
+- Learn PyTorch fundamentals
+- Understand the training loop
+- Mini projects with image datasets (MNIST / Fashion-MNIST)
+
+## Day 1 -- PyTorch Basics
+- Tensors: creation, shapes, operations
+- Autograd: gradients and backprop basics
+
+Notebook: `notebooks/pytorch_basics.ipynb`
+
+## Day 2 -- Training Loop
+- Dataset & DataLoader
+- Forward pass → Loss → Backprop → Optimizer step
+- Train/Test separation and basic evaluation
+
+Covered across the MNIST/Fashion-MNIST notebooks below.
+
+## Day 3 -- First Neural Network (MNIST, MLP)
+- MNIST digit classifier using a simple feed-forward network (MLP)
+- Track loss / accuracy
+- Save & load model checkpoints
+
+Notebook: `notebooks/mnist_nn.ipynb`
+
+## Day 4 -- Improved Model (CNN on MNIST)
+- Convolutional Neural Network (CNN) basics
+- Regularization & stability:
+  - Dropout
+  - Batch Normalization
+- Compare performance vs. the MLP approach
+
+Notebook: `notebooks/cnn_mnist.ipynb`
+
+## Day 5 -- Mini Project (Fashion-MNIST)
+- Train a classifier on Fashion-MNIST
+- Evaluate with a confusion matrix for class-wise performance
+
+Notebook: `notebooks/pytorch_miniprojekt.ipynb`
+
+## Notes
+- Datasets (e.g. `notebooks/data/`) are downloaded automatically via `torchvision` and are **gitignored**.
+
+
 # 🔌 API Endpoints
 
 ### **GET /**
@@ -189,7 +244,7 @@ Output: `predicted_price` + `latency_sec`
 ``` bash
 python -m venv venv
 source venv/bin/activate      # macOS/Linux
-venv\Scriptsctivate         # Windows
+venv\Scripts/activate         # Windows
 ```
 
 ## 2. Install Dependencies
@@ -211,6 +266,7 @@ uvicorn api.app:app --reload
 -   Python 3.11\
 -   NumPy, Pandas\
 -   Scikit-Learn\
+-   PyTorch, Torchvision\
 -   Matplotlib, Seaborn\
 -   FastAPI\
 -   Uvicorn\
