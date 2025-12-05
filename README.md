@@ -172,7 +172,7 @@ Notebook: `tests/load_test.ipynb`
 
 ------------------------------------------------------------------------
 
-# 🧠 Week 10 -- Deep Learning Basics (PyTorch)
+# 🧠 Week 7 -- Deep Learning Basics (PyTorch)
 
 Goal:
 - Build first deep learning models
