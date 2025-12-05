@@ -17,3 +17,12 @@ Thumbs.db
 # ML Model Files
 *.pkl
 !api/housing_pipeline.pkl
+
+# PyTorch/Torchvision datasets (Week 10)
+notebooks/data/
+notebooks/data/**
+
+# Model weights (falls vorhanden)
+*.pth
+*.pt
+
